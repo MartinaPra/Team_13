@@ -17,4 +17,182 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutPlan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabDotsMeals"
+                app:tabBackground="@drawable/ic_tab_selector"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/pagerMeals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tabDotsMeals"
+                android:clipChildren="false"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp" />
+
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupDays"
+                    app:selectionRequired="true"
+                    app:singleLine="true"
+                    app:singleSelection="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.google.android.material.chip.ChipGroup>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/card_selected"
+            app:strokeWidth="1dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="4dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp">
+
+                <TextView
+                    android:id="@+id/labelMeatCount"
+                    app:drawableStartCompat="@drawable/ic_meat"
+                    app:layout_constraintBottom_toTopOf="@+id/labelVeggieCount"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/labelVeggieCount"
+                    app:drawableStartCompat="@drawable/ic_veggie"
+                    app:layout_constraintBottom_toTopOf="@+id/labelSpecialCount"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/labelSpecialCount"
+                    app:drawableStartCompat="@drawable/ic_special"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="0" />
+
+                <RatingBar
+                    android:id="@+id/ratingAvg"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:numStars="4" />
+
+                <TextView
+                    android:id="@+id/labelAvgRating"
+                    app:layout_constraintBottom_toTopOf="@+id/ratingAvg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/average_rating" />
+
+                <TextView
+                    android:id="@+id/labelPlan"
+                    app:drawableStartCompat="@drawable/ic_plan"
+                    app:layout_constraintBottom_toTopOf="@+id/labelMeatCount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:drawablePadding="8dp"
+                    android:text="@string/currentPlan"
+                    android:textColor="#748A9D"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCurrentDay"
+                    app:chipBackgroundColor="@color/ic_chip_background"
+                    app:chipIcon="@drawable/ic_time"
+                    app:chipIconTint="@color/chip_icon_tint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/labelPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/currentDay"
+                    android:textColor="@color/ic_chip_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

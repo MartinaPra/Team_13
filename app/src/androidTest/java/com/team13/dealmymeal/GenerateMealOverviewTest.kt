@@ -28,6 +28,6 @@ class GenerateMealOverviewTest {
 
     @Test
     fun openHistory() {
-        onView(ViewMatchers.withId(R.id.history_window)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.historyFragment)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }

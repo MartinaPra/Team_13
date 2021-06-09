@@ -5,8 +5,12 @@ import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.annotation.RequiresApi
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.onNavDestinationSelected
 import com.team13.dealmymeal.MainActivity
 import com.team13.dealmymeal.R
 
@@ -36,25 +40,34 @@ class DashboardFragment : Fragment() {
 
         return when (item.itemId) {
             R.id.language -> {
-                    val languages = arrayOf("русский", "English")
-                    val selectLanguageAlert = AlertDialog.Builder(context)
-                    selectLanguageAlert.setTitle(R.string.chooseLanguage)
-                    selectLanguageAlert.setSingleChoiceItems(languages, -1) { dialog, selection ->
-                        when(selection) {
-                            0 -> {
-                                (activity as MainActivity?)!!.setLocale("ru")
-                            }
-                            1 -> {
-                                (activity as MainActivity?)!!.setLocale("en")
-                            }
+                val languages = arrayOf("русский", "English")
+                val selectLanguageAlert = AlertDialog.Builder(context)
+                selectLanguageAlert.setTitle(R.string.chooseLanguage)
+                selectLanguageAlert.setSingleChoiceItems(languages, -1) { dialog, selection ->
+                    when (selection) {
+                        0 -> {
+                            (activity as MainActivity?)!!.setLocale("ru")
                         }
-                        (activity as MainActivity?)!!.recreate()
-                        dialog.dismiss()
+                        1 -> {
+                            (activity as MainActivity?)!!.setLocale("en")
+                        }
                     }
-                    selectLanguageAlert.create().show()
+                    (activity as MainActivity?)!!.recreate()
+                    dialog.dismiss()
+                }
+                selectLanguageAlert.create().show()
+                true
+            }
+            R.id.history_button -> {
+                val navController = view?.let { Navigation.findNavController(it) }
+                if (navController != null) {
+                    navController.navigate(R.id.historyFragment)
+                }
                 true
             }
             else -> super.onOptionsItemSelected(item)
+
         }
     }
+
 }

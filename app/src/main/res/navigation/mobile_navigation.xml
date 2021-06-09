@@ -15,7 +15,13 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.team13.dealmymeal.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/Dashboard_navigation_to_history"
+            app:destination="@id/historyFragment"
+            app:popUpTo="@id/navigation_dashboard"
+            app:popUpToInclusive="false" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_overview"
@@ -38,5 +44,11 @@
             android:name="Meal"
             app:argType="com.team13.dealmymeal.data.Meal" />
     </fragment>
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.team13.dealmymeal.ui.history.HistoryFragment"
+        android:label="@string/getToMealHistory"
+        tools:layout="@layout/fragment_history" />
 
 </navigation>

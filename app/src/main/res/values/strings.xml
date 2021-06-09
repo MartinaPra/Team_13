@@ -49,7 +49,7 @@
     <string name="chooseSpecial">Special</string>
     <string name="chooseVeggie">Veggie</string>
     <string name="chooseCategory">Choose your category: </string>
-
+    <string name="getToMealHistory">History </string>
     <string-array name="categories">
         <item>Meat</item>
         <item>Vegetarian</item>

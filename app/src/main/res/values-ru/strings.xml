@@ -51,6 +51,7 @@
     <string name="chooseRating">Фильтр по рейтингу:</string>
     <string name="toastEmptyMeal">Название блюда не может быть пустым!</string>
     <string name="toast_add_duplicate_error">Это блюдо уже существует</string>
+    <string name="getToMealHistory">История </string>
 
     <string-array name="categories">
         <item>Мясо</item>

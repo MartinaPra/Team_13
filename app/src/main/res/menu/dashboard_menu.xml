@@ -2,10 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:id="@+id/history_button"
+        android:title="@string/getToMealHistory"
+        android:icon="@drawable/ic_history"
+        app:showAsAction="always"
+        android:visible="true"/>
+
     <item android:id="@+id/language"
         android:title="@string/changeLanguage"
         android:icon="@drawable/ic_language"
         app:showAsAction="always"
         android:visible="true"/>
+
 
 </menu>
